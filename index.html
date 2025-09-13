@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disha Jillella - AI/ML Engineer & Tech Leader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            /* Primary and Accent Colors */
+            --primary-color: #1A1A40;
+            --accent-color: #1ABC9C;
+
+            /* Neutral Colors */
+            --background-light: #F5F5F5;
+            --background-white: #FFFFFF;
+            --text-primary: #2F4F4F;
+            --text-secondary: #708090;
+            --border-color: #D3D3D3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--background-light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 64, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c2c70 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--accent-color), #00AEEF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(26, 188, 156, 0.1);
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 2rem;
+            background: var(--background-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        .highlight-card {
+            background: var(--background-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .highlight-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 80px 2rem;
+            background: var(--background-white);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .leadership-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c2c70 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            transform: translateY(0);
+            transition: transform 0.3s;
+        }
+
+        .leadership-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .leadership-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .leadership-card .role {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-card .duration {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 2rem;
+            background: var(--background-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--background-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card .tech-tag {
+            background: #e9f5f2;
+            color: var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 80px 2rem;
+            background: var(--background-white);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--background-light);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .profile-image img {
+                width: 190px;       /* adjust size */
+                height: 230px;
+                border-radius: 50%; /* makes it circular */
+                object-fit: cover;  /* crops nicely without distortion */
+                border: 3px solid #0ea5a0; /* optional accent border */
+            }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #e9f5f2;
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 80px 2rem;
+            background: var(--background-light);
+        }
+
+        .experience-timeline {
+            margin-top: 3rem;
+        }
+
+        .experience-item {
+            background: var(--background-white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .experience-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .company {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .duration {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .project-content {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">Disha Jillella</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#leadership">Leadership</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Disha Jillella</h1>
+        <div class="hero-tagline">Welcome to my portfolio!</div>
+        <div class="hero-subtitle">Check out some of the projects and skills I have learned along the way. Stay tuned for more updates!</div>
+        
+        <div class="profile-image">
+            <img src="a2.jpg" alt="rounded portrait">
+        </div>
+
+        <div class="social-links">
+            <a href="mailto:dishajillella92@gmail.com" class="social-link">
+                <i class="fas fa-envelope"></i>
+                Email
+            </a>
+            <a href="https://www.linkedin.com/in/disha-jillella-944357259/" class="social-link">
+                <i class="fab fa-linkedin"></i>
+                LinkedIn
+            </a>
+            <a href="https://github.com/DishaJillella" class="social-link">
+                <i class="fab fa-github"></i>
+                GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>Hi! My name is Disha Jillella a final year student, An enthusiastic tech advocate dedicated to exploring the latest technological developments. My passion lies in identifying and solving real-world problems by applying solutions that enhance our daily lives and improve our interactions with technology. I specialize in the fields of Artificial Intelligence and Application Development</p>
+                    
+                    
+                </div>
+                
+                <div class="fade-in">
+                    <div class="highlight-card">
+                        <h3>Academic Excellence</h3>
+                        <p><strong>CGPA:</strong> 8.86/10</p>
+                        <p><strong>Specialization:</strong> Artificial Intelligence & Machine Learning</p>
+                        <p><strong>Institution:</strong> Chaitanya Bharathi Institute of Technology</p>
+                        <h4>Academic Focus:</h4>
+        <p>Data Structures, Object-Oriented Programming, Database Management Systems, Operating Systems, User Interface & User Experience, Enterprise Application Development,Machine Learning,Generative AI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <section id="leadership" class="leadership">
+    <div class="container">
+        <h2 class="section-title fade-in">Leadership & Activities</h2>
+        <div class="leadership-grid">
+            <div class="leadership-card fade-in" style="background-image: linear-gradient(rgba(26, 26, 64, 0.8), rgba(26, 26, 64, 0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDMWdqNFHFn0NJpvRGp0OD2KxPXf1MNNAR8g&s');">
+                <h3>IEEE RAS Chair</h3>
+                <div class="role">Robotics and Automation Society</div>
+                <div class="duration">2024 - 2025</div>
+                <p>Leading technical workshops, organizing robotics competitions, and mentoring students in cutting-edge automation technologies. Successfully organized multiple events that increased student participation by 40%.</p>
+            </div>
+
+            <div class="leadership-card fade-in" style="background-image: linear-gradient(rgba(26, 26, 64, 0.8), rgba(26, 26, 64, 0.8)), url('https://media.licdn.com/dms/image/v2/C560BAQGPlUimkclsrg/company-logo_200_200/company-logo_200_200/0/1630396682603?e=2147483647&v=beta&t=mLMX7lBkSa7QfhtNVd17J8pykr9hqp9hPYcEZRmHIBw');">
+                <h3>Transcendent Journalist</h3>
+                <div class="role">News Club of Society</div>
+                <div class="duration">2024 - 2025</div>
+                <p>Writing daily and weekly newsletters, covering technical events, and maintaining active communication channels. Developed strong content creation and editorial skills.</p>
+            </div>
+
+            <div class="leadership-card fade-in" style="background-image: linear-gradient(rgba(26, 26, 64, 0.8), rgba(26, 26, 64, 0.8)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvHoBw9JFkAiYrSqc5GvEWCHQlh55Ws5bSbw&s');">
+                <h3>NSS Volunteer</h3>
+                <div class="role">National Service Scheme</div>
+                <div class="duration">2022 - 2024</div>
+                <p>Engaged in community service programs focused on social awareness and leadership development. Participated in rural development initiatives and educational outreach programs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card fade-in">
+                    <h3>SmartQuery: AI Assistant for Document and Web Search</h3>
+                    <p>Designed for students and researchers, this AI assistant uses a smart fallback mechanism to provide accurate information from both uploaded documents and the web. It features long answer summarization and a context-aware chat interface, significantly reducing information retrieval time.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-tag"><i class="fas fa-brain"></i> Cohere</span>
+                        <span class="tech-tag"><i class="fas fa-link"></i> LangChain</span>
+                        <span class="tech-tag"><i class="fas fa-stream"></i> Streamlit</span>
+                        <span class="tech-tag"><i class="fas fa-language"></i> NLP</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/DishaJillella/User-Question-and-Answer-System" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>Missing Person Identification System</h3>
+                    <p>A full-stack web application that uses facial recognition to identify missing persons. The system features a robust Flask backend and an interactive frontend, efficiently processing and managing over 200 records.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                        <span class="tech-tag"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="tech-tag"><i class="fas fa-server"></i> Flask</span>
+                        <span class="tech-tag"><i class="fas fa-eye"></i> OpenCV</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/DishaJillella/Missing-Person-Identification-System" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>Student Data Management API</h3>
+                    <p>A scalable backend API built with Node.js and Express.js to support full CRUD operations for student data. The application includes robust data validation, error handling, and was thoroughly tested with Postman.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="tech-tag"><i class="fas fa-server"></i> Express.js</span>
+                        <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
+                        <span class="tech-tag"><i class="fas fa-cogs"></i> REST API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/DishaJillella/React-EAD-" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>SikshaRaksha</h3>
+                    <p>This Dropout rate analysis website was buit to analyze drop out rate data, providing insightful visual representations through indian maps graphs and piecharts to analyze targeted areas</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag"><i class="fas fa-link"></i> HTML</span>
+                        <span class="tech-tag"><i class="fas fa-handshake"></i> JavaScript</span>
+                        <span class="tech-tag"><i class="fab fa-python"></i> React</span>
+                        <span class="tech-tag"><i class="fas fa-shield-alt"></i> CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/DishaJillella/SikshaRaksha" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">MATLAB</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-robot"></i> AI/ML/NLP</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Large Language Models</span>
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">OpenCV</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-tools"></i> Developer Tools</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">PyCharm</span>
+                        <span class="skill-tag">VS Code</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks & Libraries</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item fade-in">
+                    <h3>Project Intern</h3>
+                    <div class="company">Defence Research and Development Organisation (DRDO), Hyderabad</div>
+                    <div class="duration">June 2025 – July 2025</div>
+                    <p>Developed and deployed a secure Retrieval-Augmented Generation (RAG) pipeline tailored for offline knowledge retrieval in sensitive environments. Utilized LangChain, HuggingFace Transformers, and Python for modular, scalable offline deployment.</p>
+                </div>
+
+                <div class="experience-item fade-in">
+                    <h3>Data Science Intern</h3>
+                    <div class="company">CoderOne</div>
+                    <div class="duration">July 2024 – August 2024</div>
+                    <p>Developed a Text Summarizer capable of generating concise summaries from long text documents using sequence-to-sequence modeling and attention mechanisms. Created a Question and Answer System designed to accurately process and respond to user queries based on natural language processing techniques.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy;Disha Jillella</p>
+            <div style="margin-top: 1rem;">
+                <a href="mailto:dishajillella92@gmail.com" style="color: var(--accent-color); margin: 0 1rem;">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/disha-jillella" style="color: var(--accent-color); margin: 0 1rem;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/DishaJillella" style="color: var(--accent-color); margin: 0 1rem;">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.project-card, .leadership-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
